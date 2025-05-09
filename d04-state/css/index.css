@@ -1,0 +1,48 @@
+.headerTitle{
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;   
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  background-color: DodgerBlue;
+  margin: 10px;
+  padding: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex > button {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.toDo {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(197, 223, 248);
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .toDo >ol >li {
+    font-size: 1.5rem;
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(107, 150, 243);
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .galFlex{
+    justify-content: space-evenly;
+  }
