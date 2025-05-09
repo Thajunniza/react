@@ -39,12 +39,12 @@ In this syntax
  - Display the list of todo items.
 
 
- ##Example 2 - Create a Gallery which shows info on clicking next
+ ## Example 2 - Create a Gallery which shows info on clicking next
  - Create a sepearate file data.js to hold the array of data
  - Create a new file called Gallery.jsx
  - Add Gallery twice you can see the diff that changing one index doesnt affect the other
 
- ##Example 3 - Update State
+ ## Example 3 - Update State
 
  What is an Updater Function?
 An updater function is a special way to update state in React when the new state depends on the previous state. Instead of passing a direct value to the state setter function, you pass a function that receives the previous state as an argument and returns the new state.
@@ -66,12 +66,12 @@ Keep updater functions pure - they should calculate the new state based only on 
 Don't call setState inside the updater function - this can lead to infinite loops
 Remember to return the new state from the updater function
 
-##Example 4 - Objects in state
+## Example 4 - Objects in state
 State can hold any kind of JavaScript value, including objects. But you shouldn’t change objects that you hold in the React state directly. Instead, when you want to update an object, you need to create a new one (or make a copy of an existing one), and then set the state to use that copy.
 
 -  In this example I have used Ramda function to copy the object and pass the parameter as an property which needs to changed.
 
-##Example 5 - Arrays in state
+## Example 5 - Arrays in state
 Arrays are mutable in JavaScript, but you should treat them as immutable when you store them in state. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array.
 
 In JavaScript, arrays are just another kind of object. Like with objects, you should treat arrays in React state as read-only. This means that you shouldn’t reassign items inside an array like arr[0] = 'bird', and you also shouldn’t use methods that mutate the array, such as push() and pop().
