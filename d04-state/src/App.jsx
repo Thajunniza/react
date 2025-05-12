@@ -3,10 +3,11 @@ import Counter from "../components/Counter";
 import '../css/index.css'
 import TodoList from "../components/TodoList";
 import Gallery from "../components/Gallery";
-import Test from "../components/test";
 import Update from "../components/Update";
 import ObjectForm from "../components/ObjectForm";
 import Array from "../components/Array";
+import ShoppingCart from "../components/ShoppingCart";
+import Test from "../components/test";
 function App() {
   return (
     <>
@@ -14,7 +15,7 @@ function App() {
         <title>State</title>
       </head>
       <h1 className="headerTitle">ReactJS State</h1>
-      {/* <Counter />
+      <Counter />
       <TodoList/>
       <div className="flex galFlex">
       <Gallery/>
@@ -22,7 +23,8 @@ function App() {
       </div>
       <Update/>
       <ObjectForm/>
-      <Array/> */}
+      <Array/>
+      <ShoppingCart/>
       <Test/>
     </>
   );

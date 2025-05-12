@@ -1,50 +1,59 @@
-import { useState } from "react";
-import * as R from "ramda";
+import { useState } from 'react';
+import AddTodo from './AddTodo.jsx';
+import TaskList from './TaskList.jsx';
+import * as R from 'ramda';
 
-const initialProducts = [
-  {
-    id: 0,
-    name: "Baklava",
-    count: 1,
-  },
-  {
-    id: 1,
-    name: "Cheese",
-    count: 5,
-  },
-  {
-    id: 2,
-    name: "Spaghetti",
-    count: 2,
-  },
+let nextId = 3;
+const initialTodos = [
+  { id: 0, title: 'Buy milk', done: true },
+  { id: 1, title: 'Eat tacos', done: false },
+  { id: 2, title: 'Brew tea', done: false },
 ];
 
-export default function ShoppingCart() {
-  const [products, setProducts] = useState(initialProducts);
+export default function Test() {
+  const [todos, setTodos] = useState(
+    initialTodos
+  );
 
-  const addProduct = (product,productId) => {
-    product.count = productId === product.id ? product.count + 1 : product.count;
-    return product;
-  };
+  function handleAddTodo(title) {
+    if(title.trim()){
+      setTodos([...todos,{
+        id: nextId++,
+        title: title,
+        done: false
+      }]);
+    }
+    
+  }
 
-  function handleIncreaseClick(productId) {
-    setProducts(R.map(product => addProduct(product,productId), products));
+  function handleChangeTodo(nextTodo) {
+    setTodos(R.map( t => {
+      if(t.id === nextTodo.id){
+        t.title = nextTodo.title;
+        t.done = nextTodo.done;
+      }
+      return t;
+    }))(todos);
+    
+  }
+
+  function handleDeleteTodo(todoId) {
+    const arr = R.filter( t => {
+      return t.id != todoId
+    });
+    setTodos(arr,todos);
   }
 
   return (
-    <ul>
-      {products.map((product) => (
-        <li key={product.id}>
-          {product.name} (<b>{product.count}</b>)
-          <button
-            onClick={() => {
-              handleIncreaseClick(product.id);
-            }}
-          >
-            +
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <AddTodo
+        onAddTodo={handleAddTodo}
+      />
+      <TaskList
+        todos={todos}
+        onChangeTodo={handleChangeTodo}
+        onDeleteTodo={handleDeleteTodo}
+      />
+    </>
   );
 }
